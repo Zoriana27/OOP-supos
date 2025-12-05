@@ -1,0 +1,37 @@
+public abstract class Student {
+    protected int ticks;
+
+    public Student(int ticks) {
+        this.ticks = ticks;
+    }
+    public abstract boolean pass(); //this is now polymorphic
+}
+public class CSStudent extends Student {
+    public CSStudent(int ticks) {
+        super(ticks);
+    }
+    @Override
+    public boolean pass() {
+        return ticks >= 20;
+    }
+}
+public class NSStudent extends Student {
+    public NSStudent(int ticks) {
+        super(ticks);
+    }
+    @Override
+    public boolean pass() {
+        return ticks >= 10;
+    }
+}
+void main() {
+    List<Student> students = new ArrayList<>();
+    students.add(new CSStudent(18));
+    students.add(new NSStudent(12));
+    students.add(new CSStudent(21));
+
+    for (Student student : students) {
+        System.out.println(student.pass());
+    }
+
+}
