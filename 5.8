@@ -1,0 +1,22 @@
+public class Employee {
+    void work(){
+        System.out.print("Doing something employeelike.");
+    }
+}
+public class Ninja {
+    void sneak(){
+        System.out.print("Being very sneaky...");
+    }
+
+}
+public interface Ninjalike {
+    void sneak();
+}
+public class NinjaEmployee extends Employee implements Ninjalike{
+    private Ninja ninja = new Ninja();
+
+    @Override
+    public void sneak(){
+        ninja.sneak();
+    }
+}
