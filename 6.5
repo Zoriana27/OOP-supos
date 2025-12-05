@@ -1,0 +1,31 @@
+public class SomeOtherClass {
+    private int num;
+    private String str;
+    SomeOtherClass() {
+        this.num = 3;
+        this.str = "Hello";
+    }
+    public String toString(){
+        return str + num;
+    }
+}
+public class SomeClass extends SomeOtherClass implements Cloneable{
+    private int[] mData;
+    public SomeClass(){
+        mData = new int[]{1, 2, 4};
+
+    }
+    public Object clone(){
+        SomeClass sc = new SomeClass();
+        sc.mData = mData.clone();
+        return sc;
+    }
+
+}
+void main() {
+    SomeClass original = new SomeClass();
+    SomeClass copy = (SomeClass) original.clone();
+    System.out.println(original);
+    System.out.println(copy);
+
+}
